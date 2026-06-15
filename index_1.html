@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abdullah Mahli — IT Support Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#080808;--surface:rgba(255,255,255,0.04);--border:rgba(255,255,255,0.08);--border-hover:rgba(255,255,255,0.22);--text:#ffffff;--muted:rgba(255,255,255,0.45);--font-en:'Inter',sans-serif;--font-ar:'Tajawal',sans-serif}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-en);overflow-x:hidden;line-height:1.6}
+body.ar{font-family:var(--font-ar);direction:rtl}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 2.5rem;background:rgba(8,8,8,0.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-name{font-weight:700;font-size:15px;letter-spacing:-0.4px}
+.nav-right{display:flex;align-items:center;gap:2rem}
+.nav-links{display:flex;gap:1.8rem}
+.nav-link{background:none;border:none;color:rgba(255,255,255,0.45);font-size:13px;cursor:pointer;font-family:inherit;transition:color 0.2s;padding:0}
+.nav-link:hover{color:#fff}
+.lang-btn{background:rgba(255,255,255,0.07);border:1px solid var(--border);color:#fff;font-size:12px;cursor:pointer;font-family:inherit;padding:6px 14px;border-radius:999px;transition:all 0.2s}
+.lang-btn:hover{background:rgba(255,255,255,0.14)}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:2rem;position:relative;overflow:hidden}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 100%)}
+.hero-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,0.04) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.hero-content{position:relative;z-index:2;max-width:760px}
+.badge{display:inline-flex;align-items:center;gap:7px;padding:7px 18px;border:1px solid var(--border);border-radius:999px;font-size:12px;color:rgba(255,255,255,0.45);margin-bottom:2.2rem;letter-spacing:0.8px;text-transform:uppercase;animation:fadeDown 0.8s ease both}
+.badge-dot{width:7px;height:7px;border-radius:50%;background:#4ade80;flex-shrink:0;animation:pulse 2s infinite}
+.hero h1{font-size:clamp(2.8rem,6.5vw,5.5rem);font-weight:700;line-height:1.03;letter-spacing:-2.5px;animation:fadeUp 0.9s 0.2s ease both}
+body.ar .hero h1{letter-spacing:0}
+.hero h1 .line2{display:block;color:rgba(255,255,255,0.4);font-weight:400}
+.hero-sub{font-size:1.05rem;color:rgba(255,255,255,0.45);margin-top:1.6rem;max-width:500px;line-height:1.75;animation:fadeUp 0.9s 0.4s ease both;margin-left:auto;margin-right:auto}
+.hero-btns{display:flex;gap:1rem;margin-top:2.5rem;animation:fadeUp 0.9s 0.6s ease both;flex-wrap:wrap;justify-content:center}
+.btn-p{padding:13px 30px;background:#fff;color:#000;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;transition:all 0.2s;font-family:inherit}
+.btn-p:hover{background:#e5e5e5;transform:translateY(-2px)}
+.btn-o{padding:13px 30px;background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.25);border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;transition:all 0.2s;font-family:inherit}
+.btn-o:hover{border-color:rgba(255,255,255,0.6);transform:translateY(-2px)}
+.particles{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.scroll-cue{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;transition:opacity 0.4s}
+.scroll-cue span{display:block;width:1px;height:40px;background:linear-gradient(to bottom,rgba(255,255,255,0.4),transparent);margin:0 auto}
+.section{padding:6rem 2rem;max-width:920px;margin:0 auto}
+.s-label{font-size:11px;text-transform:uppercase;letter-spacing:2.5px;color:rgba(255,255,255,0.3);margin-bottom:0.8rem}
+.s-title{font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-1.2px;line-height:1.1;margin-bottom:3rem}
+body.ar .s-title{letter-spacing:0}
+.divider{height:1px;background:var(--border);max-width:920px;margin:0 auto}
+.about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:start}
+.about-text{color:rgba(255,255,255,0.45);line-height:1.85;font-size:0.95rem}
+.about-text+.about-text{margin-top:1rem}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.4rem 1.2rem}
+.stat-num{font-size:2.2rem;font-weight:700;line-height:1;letter-spacing:-1px}
+.stat-label{font-size:11px;color:rgba(255,255,255,0.4);margin-top:5px;text-transform:uppercase;letter-spacing:1px}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem}
+.skill-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.5rem;transition:border-color 0.3s,transform 0.3s}
+.skill-card:hover{border-color:var(--border-hover);transform:translateY(-4px)}
+.skill-title{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.4);margin-bottom:1.1rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{padding:5px 11px;background:rgba(255,255,255,0.06);border-radius:999px;font-size:12px;color:rgba(255,255,255,0.65)}
+.proj-grid{display:grid;gap:1.25rem}
+.proj-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:2rem;transition:all 0.35s;position:relative;overflow:hidden}
+.proj-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.025),transparent 55%);opacity:0;transition:opacity 0.35s}
+.proj-card:hover{border-color:var(--border-hover);transform:translateY(-5px)}
+.proj-card:hover::after{opacity:1}
+.proj-meta{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:rgba(255,255,255,0.35);margin-bottom:0.7rem}
+.proj-title{font-size:1.25rem;font-weight:600;margin-bottom:0.75rem;letter-spacing:-0.3px}
+body.ar .proj-title{letter-spacing:0}
+.proj-desc{color:rgba(255,255,255,0.45);font-size:0.9rem;line-height:1.75;margin-bottom:1.25rem}
+.proj-stack{display:flex;gap:6px;flex-wrap:wrap}
+.stack-tag{padding:4px 11px;border:1px solid rgba(255,255,255,0.1);border-radius:999px;font-size:11px;color:rgba(255,255,255,0.4)}
+.contact-box{background:var(--surface);border:1px solid var(--border);border-radius:22px;padding:3.5rem 2rem;text-align:center}
+.contact-box h2{font-size:2rem;font-weight:700;letter-spacing:-1px;margin-bottom:1rem}
+body.ar .contact-box h2{letter-spacing:0}
+.contact-box p{color:rgba(255,255,255,0.45);margin-bottom:2rem;line-height:1.75;max-width:420px;margin-left:auto;margin-right:auto}
+.contact-links{display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap}
+.c-link{display:flex;align-items:center;gap:8px;padding:11px 22px;border:1px solid var(--border);border-radius:10px;color:rgba(255,255,255,0.5);font-size:13px;transition:all 0.25s;cursor:pointer;text-decoration:none;font-family:inherit}
+.c-link:hover{border-color:var(--border-hover);color:#fff}
+.c-link svg{width:16px;height:16px;flex-shrink:0}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
+.reveal.v{opacity:1;transform:none}
+.d1{transition-delay:0.1s}.d2{transition-delay:0.2s}.d3{transition-delay:0.3s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+@keyframes floatUp{0%{transform:translateY(100vh);opacity:0}5%{opacity:0.6}90%{opacity:0.6}100%{transform:translateY(-10px);opacity:0}}
+@media(max-width:640px){.about-grid{grid-template-columns:1fr}nav{padding:1rem 1.25rem}.nav-links{gap:1rem}.section{padding:4rem 1.25rem}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-name" data-en="Abdullah Mahli" data-ar="عبدالله محلي">Abdullah Mahli</div>
+  <div class="nav-right">
+    <div class="nav-links">
+      <button class="nav-link" data-en="About" data-ar="عني" onclick="jump('about')">About</button>
+      <button class="nav-link" data-en="Skills" data-ar="المهارات" onclick="jump('skills')">Skills</button>
+      <button class="nav-link" data-en="Projects" data-ar="المشاريع" onclick="jump('projects')">Projects</button>
+      <button class="nav-link" data-en="Contact" data-ar="تواصل" onclick="jump('contact')">Contact</button>
+    </div>
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()">عربي</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="particles" id="particles"></div>
+  <div class="hero-content">
+    <div class="badge">
+      <span class="badge-dot"></span>
+      <span data-en="Available for hire" data-ar="متاح للتوظيف">Available for hire</span>
+    </div>
+    <h1>
+      <span data-en="IT Support Specialist" data-ar="متخصص دعم تقني">IT Support Specialist</span>
+      <span class="line2" data-en="& CS Graduate" data-ar="وخريج علوم حاسب">& CS Graduate</span>
+    </h1>
+    <p class="hero-sub" data-en="Solving technical problems, supporting end users, and building intelligent systems — based in Saudi Arabia." data-ar="أحل المشكلات التقنية، وأدعم المستخدمين، وأبني أنظمة ذكية — من المملكة العربية السعودية.">Solving technical problems, supporting end users, and building intelligent systems — based in Saudi Arabia.</p>
+    <div class="hero-btns">
+      <button class="btn-p" data-en="View Projects" data-ar="المشاريع" onclick="jump('projects')">View Projects</button>
+      <button class="btn-o" data-en="Get in Touch" data-ar="تواصل معي" onclick="jump('contact')">Get in Touch</button>
+    </div>
+  </div>
+  <div class="scroll-cue" id="scrollCue"><span></span></div>
+</section>
+
+<div class="divider"></div>
+
+<div class="section" id="about">
+  <div class="reveal">
+    <div class="s-label" data-en="Who I am" data-ar="من أنا">Who I am</div>
+    <div class="s-title" data-en="CS grad with a passion for IT" data-ar="خريج علوم حاسب وشغوف بتقنية المعلومات">CS grad with a passion for IT</div>
+  </div>
+  <div class="about-grid reveal d1">
+    <div>
+      <p class="about-text" data-en="I'm Abdullah Mahli, a Computer Science graduate from Umm Al-Qura University (GPA 3.53/4.0). I specialize in IT support — troubleshooting hardware, software, and networks — while also bringing strong experience in Python and AI/ML development." data-ar="أنا عبدالله محلي، خريج علوم حاسب من جامعة أم القرى بمعدل 3.53/4.0. أتخصص في دعم تقنية المعلومات — تشخيص وإصلاح مشاكل الأجهزة والبرمجيات والشبكات — مع خبرة قوية في Python وتطوير الذكاء الاصطناعي.">I'm Abdullah Mahli, a Computer Science graduate from Umm Al-Qura University (GPA 3.53/4.0). I specialize in IT support — troubleshooting hardware, software, and networks — while also bringing strong experience in Python and AI/ML development.</p>
+      <p class="about-text" style="margin-top:1rem" data-en="Currently pursuing ITIL 4 Foundation certification. I've provided hands-on tech support to 50+ users and delivered production-grade AI projects from scratch." data-ar="أسعى حالياً للحصول على شهادة ITIL 4 Foundation. قدمت دعماً تقنياً مباشراً لأكثر من 50 مستخدماً وأنجزت مشاريع ذكاء اصطناعي متكاملة من الصفر.">Currently pursuing ITIL 4 Foundation certification. I've provided hands-on tech support to 50+ users and delivered production-grade AI projects from scratch.</p>
+    </div>
+    <div class="stat-grid">
+      <div class="stat"><div class="stat-num">3.53</div><div class="stat-label" data-en="GPA / 4.0" data-ar="المعدل / 4.0">GPA / 4.0</div></div>
+      <div class="stat"><div class="stat-num">50+</div><div class="stat-label" data-en="Users Supported" data-ar="مستخدم مدعوم">Users Supported</div></div>
+      <div class="stat"><div class="stat-num">3+</div><div class="stat-label" data-en="AI Projects" data-ar="مشاريع ذكاء اصطناعي">AI Projects</div></div>
+      <div class="stat"><div class="stat-num">5+</div><div class="stat-label" data-en="Years Coding" data-ar="سنوات برمجة">Years Coding</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section" id="skills">
+  <div class="reveal">
+    <div class="s-label" data-en="What I know" data-ar="ما أتقنه">What I know</div>
+    <div class="s-title" data-en="Technical Skills" data-ar="المهارات التقنية">Technical Skills</div>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card reveal d1">
+      <div class="skill-title" data-en="IT Support" data-ar="دعم تقنية المعلومات">IT Support</div>
+      <div class="tags">
+        <span class="tag">Windows 10/11</span>
+        <span class="tag" data-en="Help Desk" data-ar="مكتب المساعدة">Help Desk</span>
+        <span class="tag" data-en="Remote Desktop" data-ar="سطح المكتب البعيد">Remote Desktop</span>
+        <span class="tag" data-en="System Maintenance" data-ar="صيانة الأنظمة">System Maintenance</span>
+        <span class="tag" data-en="PC Assembly" data-ar="تجميع الحاسب">PC Assembly</span>
+      </div>
+    </div>
+    <div class="skill-card reveal d2">
+      <div class="skill-title" data-en="Networking" data-ar="الشبكات">Networking</div>
+      <div class="tags">
+        <span class="tag">TCP/IP</span>
+        <span class="tag" data-en="DNS Config" data-ar="إعداد DNS">DNS Config</span>
+        <span class="tag">VPN</span>
+        <span class="tag" data-en="Command Prompt" data-ar="موجه الأوامر">Command Prompt</span>
+        <span class="tag" data-en="Router Setup" data-ar="إعداد الراوتر">Router Setup</span>
+      </div>
+    </div>
+    <div class="skill-card reveal d1">
+      <div class="skill-title" data-en="Development" data-ar="البرمجة">Development</div>
+      <div class="tags">
+        <span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">React.js</span><span class="tag">React Native</span><span class="tag">Java</span>
+      </div>
+    </div>
+    <div class="skill-card reveal d2">
+      <div class="skill-title" data-en="AI & Data" data-ar="الذكاء الاصطناعي والبيانات">AI & Data</div>
+      <div class="tags">
+        <span class="tag">TensorFlow</span><span class="tag">PyTorch</span><span class="tag">YOLO</span><span class="tag">pandas</span><span class="tag">NumPy</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section" id="projects">
+  <div class="reveal">
+    <div class="s-label" data-en="What I've built" data-ar="ما بنيته">What I've built</div>
+    <div class="s-title" data-en="Projects" data-ar="المشاريع">Projects</div>
+  </div>
+  <div class="proj-grid">
+    <div class="proj-card reveal">
+      <div class="proj-meta" data-en="Graduation Project · 2025" data-ar="مشروع التخرج · 2025">Graduation Project · 2025</div>
+      <div class="proj-title" data-en="Stock Market Prediction System" data-ar="نظام توقع سوق الأسهم">Stock Market Prediction System</div>
+      <div class="proj-desc" data-en="Built an end-to-end pipeline to analyze Saudi Arabia's historical stock data and generate trend predictions with localized market insights using machine learning." data-ar="بنيت نظاماً متكاملاً لتحليل البيانات التاريخية لسوق الأسهم السعودي وتوليد توقعات الاتجاهات مع رؤى محلية باستخدام التعلم الآلي.">Built an end-to-end pipeline to analyze Saudi Arabia's historical stock data and generate trend predictions with localized market insights using machine learning.</div>
+      <div class="proj-stack"><span class="stack-tag">Python</span><span class="stack-tag">pandas</span><span class="stack-tag">NumPy</span><span class="stack-tag">Machine Learning</span></div>
+    </div>
+    <div class="proj-card reveal d1">
+      <div class="proj-meta" data-en="Independent Project · 2024" data-ar="مشروع شخصي · 2024">Independent Project · 2024</div>
+      <div class="proj-title" data-en="AI News Sentiment Analysis Tool" data-ar="أداة تحليل مشاعر الأخبار بالذكاء الاصطناعي">AI News Sentiment Analysis Tool</div>
+      <div class="proj-desc" data-en="ML model to classify financial news as positive or negative with a 0–1 confidence score, plus automatic company name extraction via NER. Designed as a stock market signal." data-ar="نموذج تعلم آلي يصنف الأخبار المالية بين إيجابية وسلبية مع نسبة ثقة من 0 إلى 1، واستخراج تلقائي لأسماء الشركات. مصمم كإشارة لسوق الأسهم.">ML model to classify financial news as positive or negative with a 0–1 confidence score, plus automatic company name extraction via NER. Designed as a stock market signal.</div>
+      <div class="proj-stack"><span class="stack-tag">Python</span><span class="stack-tag">NLP</span><span class="stack-tag">NER</span><span class="stack-tag">Sentiment Analysis</span></div>
+    </div>
+    <div class="proj-card reveal d2">
+      <div class="proj-meta" data-en="Class Project · 2024" data-ar="مشروع دراسي · 2024">Class Project · 2024</div>
+      <div class="proj-title" data-en="Endangered Species Object Detection" data-ar="كشف الأنواع المهددة بالانقراض">Endangered Species Object Detection</div>
+      <div class="proj-desc" data-en="YOLO-based model to identify Saudi Arabia's endangered species — Arabian Leopard and Hawksbill Turtle — from image input, covering the full ML pipeline." data-ar="نموذج قائم على YOLO لتحديد الأنواع المهددة بالانقراض في السعودية — الفهد العربي والسلحفاة الأخضرية — من صور، يغطي دورة التعلم الآلي كاملة.">YOLO-based model to identify Saudi Arabia's endangered species — Arabian Leopard and Hawksbill Turtle — from image input, covering the full ML pipeline.</div>
+      <div class="proj-stack"><span class="stack-tag">YOLO</span><span class="stack-tag">TensorFlow</span><span class="stack-tag">Object Detection</span><span class="stack-tag">Python</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="section" id="contact">
+  <div class="contact-box reveal">
+    <h2 data-en="Let's work together" data-ar="لنعمل معاً">Let's work together</h2>
+    <p data-en="I'm actively looking for IT Support and Help Desk opportunities. Feel free to reach out — I respond quickly." data-ar="أبحث بنشاط عن فرص في دعم تقنية المعلومات ومكتب المساعدة. لا تتردد في التواصل — أرد بسرعة.">I'm actively looking for IT Support and Help Desk opportunities. Feel free to reach out — I respond quickly.</p>
+    <div class="contact-links">
+      <a class="c-link" href="mailto:Abdullahamahli@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        Abdullahamahli@gmail.com
+      </a>
+      <a class="c-link" href="tel:+966532118779">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.07 12a19.79 19.79 0 0 1-3-8.63A2 2 0 0 1 3.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +966 532118779
+      </a>
+      <div class="c-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span data-en="Saudi Arabia" data-ar="المملكة العربية السعودية">Saudi Arabia</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="height:4rem"></div>
+
+<script>
+let isAr = false;
+function toggleLang() {
+  isAr = !isAr;
+  document.body.classList.toggle('ar', isAr);
+  document.documentElement.setAttribute('lang', isAr ? 'ar' : 'en');
+  document.documentElement.setAttribute('dir', isAr ? 'rtl' : 'ltr');
+  document.getElementById('langBtn').textContent = isAr ? 'English' : 'عربي';
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.textContent = isAr ? el.dataset.ar : el.dataset.en;
+  });
+}
+function jump(id) {
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+const pc = document.getElementById('particles');
+for (let i = 0; i < 22; i++) {
+  const d = document.createElement('div');
+  const s = Math.random() * 2.5 + 0.5;
+  d.style.cssText = `position:absolute;width:${s}px;height:${s}px;border-radius:50%;background:rgba(255,255,255,${(Math.random()*0.18+0.04).toFixed(2)});left:${Math.random()*100}%;top:${Math.random()*100}%;animation:floatUp ${Math.round(Math.random()*18+12)}s ${Math.round(Math.random()*12)}s linear infinite`;
+  pc.appendChild(d);
+}
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('v'); });
+}, {threshold: 0.12});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+window.addEventListener('scroll', () => {
+  document.getElementById('scrollCue').style.opacity = window.scrollY > 80 ? '0' : '1';
+}, {passive:true});
+</script>
+</body>
+</html>
